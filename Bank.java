@@ -106,6 +106,8 @@ class Customer
         Transaction temp;
         for(int i=0;i<n;i++)
         {
+            if(stack.isEmpty())
+            break;
             temp = stack.pop();
             stack_helper.push(temp);
             System.out.println("Transaction"+(i+1));
@@ -114,6 +116,7 @@ class Customer
             System.out.println("Trasaction amount : "+temp.txn_amount);
             System.out.println("Receipient Username : "+temp.sent_to.uname);
             System.out.println("Receipient Account : "+temp.sent_to.acc_no);
+            System.out.println();
         }
         while(!stack_helper.isEmpty())
         {
@@ -147,11 +150,13 @@ class Bank
                         int acc_no = (int)(Math.random()*100000000);
 
                         System.out.println("Welcome , your Account Number is = "+acc_no);
+                        
                         String date="";
-                        //date -----------------!!!!!
                         DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
                         Calendar cal = Calendar.getInstance();
                         date = formatter.format(cal.getTime());
+
+                        System.out.println("Date of opening = " + date);
 
                         System.out.println("Enter you Username");
                         String uname;
